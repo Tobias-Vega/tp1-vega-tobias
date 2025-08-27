@@ -1,0 +1,25 @@
+{
+  "name": "tp1-vega-tobias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tobias-Vega/tp1-vega-tobias.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Tobias-Vega/tp1-vega-tobias/issues"
+  },
+  "homepage": "https://github.com/Tobias-Vega/tp1-vega-tobias#readme",
+  "devDependencies": {
+    "tsx": "^4.20.5"
+  }
+}
