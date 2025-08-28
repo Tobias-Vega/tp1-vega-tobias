@@ -17,7 +17,7 @@ export class Jugador implements IIdentificable {
     this.posicion = posicion;
   }
 
-  toString(): void {
+  public toString(): void {
     console.log(`Datos del jugador. Nombre: ${this.nombre}. Edad ${this.edad}. Posición: ${this.posicion ? this.posicion : "No proporcionado"}`);
   }
 }

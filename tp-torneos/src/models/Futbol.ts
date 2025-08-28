@@ -3,12 +3,12 @@ import type { Equipo } from "./Equipo.js";
 
 export class Futbol extends Deporte {
 
-  nombre: string = "Fútbol";
-  maxPorEquipo: number = 11;
+  public nombre: string = "Futbol";
+  public maxPorEquipo: number = 11;
 
-  validar(equipo: Equipo): boolean {
-    if (this.maxPorEquipo < equipo.getCantidad()) {
-      console.log("La cantidad de jugadores excede al permitido");
+  public validar(equipo: Equipo): boolean {
+    if (this.maxPorEquipo !== equipo.getCantidad()) {
+      console.log(`La cantidad de jugadores debe ser exactamente ${this.maxPorEquipo}}`);
       return false;
     }
 

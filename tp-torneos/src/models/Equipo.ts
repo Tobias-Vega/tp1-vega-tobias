@@ -9,19 +9,19 @@ export class Equipo implements ICompetidor {
     this.nombre = nombre;
   }
 
-  agregarJugador(jugador: Jugador): void {
+  public agregarJugador(jugador: Jugador): void {
     this.listaintegrantes.push(jugador.nombre);
   }
 
-  listarIntegrantes(): string[] {
+  public listarIntegrantes(): string[] {
     return this.listaintegrantes;
   }
 
-  mostrarDatos(): void {
+  public toString(): void {
     console.log(`Datos del equipo. Nombre: ${this.nombre}. Integrantes: ${this.listaintegrantes.join(", ")}`);
   }
 
-  getCantidad(): number {
+  public getCantidad(): number {
     return this.listaintegrantes.length;
   }
 }
