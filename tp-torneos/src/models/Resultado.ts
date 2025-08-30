@@ -8,6 +8,6 @@ export class Resultado {
   }
 
   toString(): void {
-    console.log(`Resultado del partido: Equipo local ${this.golesLocal} ${this.golesVisitanes} Equipo visitante`);
+    console.log(`Resultado del partido: Equipo local ${this.golesLocal} - ${this.golesVisitanes} Equipo visitante`);
   }
 }
