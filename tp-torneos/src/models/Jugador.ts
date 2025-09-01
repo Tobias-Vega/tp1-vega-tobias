@@ -2,7 +2,7 @@ import { v7 as uuidv7 } from "uuid";
 import type { IIdentificable } from "../interfaces/IIdentificable.js";
 
 export class Jugador implements IIdentificable {
-  public id: string = uuidv7();
+  public readonly id: string = uuidv7();
   public nombre: string;
   public edad: number;
   public posicion?: string | undefined;
