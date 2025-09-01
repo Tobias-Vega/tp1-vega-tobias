@@ -20,7 +20,7 @@ export class Partido implements IIdentificable {
   public jugar(): Resultado | undefined {
 
     if (this.local.nombre === this.visitante.nombre) {
-      console.error("No se puede jugar un partido con el mismo equipo");
+      console.error("No se puede jugar un partido con el mismo equipo\n");
       return;
     }
 
@@ -28,7 +28,7 @@ export class Partido implements IIdentificable {
     const visitanteValido = this.deporte.validar(this.visitante);
 
     if (!localValido || !visitanteValido) {
-      console.error("Alguno de los equipos no cumplen con el deporte");
+      console.error("Alguno de los equipos no cumplen con el deporte\n");
       return;
     }
 
@@ -41,8 +41,8 @@ export class Partido implements IIdentificable {
       golesLocal = Math.floor(Math.random() * (6 - 0 + 1) + 0);
       golesVisitante = Math.floor(Math.random() * (6 - 0 + 1) + 0);
     } else if (nombreDeporte === "basquet") {
-      golesLocal = Math.floor(Math.random() * (100 - 60 + 1) + 1);
-      golesVisitante = Math.floor(Math.random() * (100 - 60 + 1) + 1);
+      golesLocal = Math.floor(Math.random() * (100 - 60 + 1) + 60);
+      golesVisitante = Math.floor(Math.random() * (100 - 60 + 1) + 60);
     } else {
       console.error('El deporte no es válido');
       return;
@@ -55,10 +55,10 @@ export class Partido implements IIdentificable {
   public toString(): void {
     if (this.resultado) {
       console.log(`Partido en disputa - Deporte: ${this.deporte.nombre}`);
-      console.log(`Equipo local: ${this.local.nombre} vs Equipo visitante ${this.visitante.nombre}`);
+      console.log(`Equipo local: ${this.local.nombre} vs Equipo visitante ${this.visitante.nombre}\n`);
       this.resultado.toString();
     } else {
-      console.log("Aún no se ha jugado el partido");
+      console.log("Aún no se ha jugado el partido\n");
     }
   }
 }

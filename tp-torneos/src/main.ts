@@ -6,8 +6,6 @@ import { Futbol } from "./models/Futbol.js";
 import { Partido } from "./models/Partido.js";
 import { Torneo } from "./models/Torneo.js";
 
-const numeroCupos: number = 4;
-
 argentina.toString();
 brasil.toString();
 españa.toString();
@@ -19,18 +17,24 @@ nets.toString();
 mavericks.toString();
 
 const futbol: Deporte = new Futbol();
-const basket: Deporte = new Basquet();
+const basquet: Deporte = new Basquet();
 
 const torneoFutbol: Torneo = new Torneo("Mundial de Fútbol");
 
-const partidoFutbol1: Partido = new Partido(argentina, argentina, futbol);
+const partidoFutbol1: Partido = new Partido(argentina, brasil, basquet);
 const partidoFutbol2: Partido = new Partido(españa, francia, futbol);
 
 torneoFutbol.programarPartido(partidoFutbol1);
 torneoFutbol.programarPartido(partidoFutbol2);
 
-try {
-  torneoFutbol.jugarPartido();
-} catch (error) {
-  console.error("Error al jugar el partido:", error);
-}
+torneoFutbol.jugarTorneo();
+
+const torneoBasquet: Torneo = new Torneo("NBA");
+
+const partidoBasquet1 = new Partido(lakers, warriors, basquet);
+const partidoBasquet2 =  new Partido(nets, mavericks, basquet);
+
+torneoBasquet.programarPartido(partidoBasquet1);
+torneoBasquet.programarPartido(partidoBasquet2);
+
+torneoBasquet.jugarTorneo();

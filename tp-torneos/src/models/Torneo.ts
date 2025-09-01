@@ -24,43 +24,43 @@ export class Torneo implements IIdentificable {
   public buscarPartido(id: string): Partido | undefined {
     const partido: Partido | undefined = this.listaPartidos.find((p) => p.id === id);
     if (!partido) {
-      console.error(`Partido con ID ${id} no encontrado.`);
+      console.error(`Partido con ID ${id} no encontrado.\n`);
     }
     return partido;
   }
 
-  public jugarPartido(): Equipo | undefined {
+  public jugarTorneo(): Equipo | undefined {
     const partidos = this.listarPartidos();
 
     if (partidos.length !== 2) {
-      console.error("Se necesitan exactamente 2 partidos para jugar las semifinales.");
+      console.error("Se necesitan exactamente 2 partidos para jugar las semifinales.\n");
       return;
     }
 
     if (!partidos[0]?.deporte) {
-      console.error("El deporte de los partidos no coincide.");
+      console.error("El deporte de los partidos no coincide.\n");
       return;
     }
 
     // Semifinales
-    console.log(`Semifinales del torneo ${this.nombre}`);
+    console.log(`Semifinales del torneo ${this.nombre}\n`);
     const ganadoresSemifinales: Equipo[] = partidos.map((partido) => {
       const resultado: Resultado | undefined = partido.jugar();
       partido.toString();
 
       if (!resultado) {
-        throw new Error("Error al jugar el partido.");
+        throw new Error("Error al jugar el partido.\n");
       }
       return resultado.golesLocal >= resultado.golesVisitanes ? partido.local : partido.visitante;
     });
 
     // Final
-    console.log(`Final del torneo ${this.nombre}`);
+    console.log(`Final del torneo ${this.nombre}\n`);
     const equipoA: Equipo | undefined = ganadoresSemifinales[0];
     const equipoB: Equipo | undefined = ganadoresSemifinales[1];
 
     if (!equipoA || !equipoB) {
-      throw new Error("No se pudieron determinar los equipos finalistas.");
+      throw new Error("No se pudieron determinar los equipos finalistas.\n");
     }
 
     const finalPartido: Partido = new Partido(equipoA, equipoB, partidos[0].deporte);
@@ -68,16 +68,16 @@ export class Torneo implements IIdentificable {
     finalPartido.toString();
 
     if (!resultadoFinal) {
-      console.error("Error al jugar el partido final.");
+      console.error("Error al jugar el partido final.\n");
       return;
     }
 
     const campeon: Equipo = resultadoFinal.golesLocal >= resultadoFinal.golesVisitanes ? finalPartido.local : finalPartido.visitante;
-    console.log(`El campeón del torneo ${this.nombre} es ${campeon.nombre}`);
+    console.log(`El campeón del torneo ${this.nombre} es ${campeon.nombre}\n`);
     return campeon;
   }
 
   toString(): void {
-    console.log(`Id: ${this.id} - Nombre del torneo: ${this.nombre} - Partidos: ${this.listaPartidos.length}`);
+    console.log(`Id: ${this.id} - Nombre del torneo: ${this.nombre} - Partidos: ${this.listaPartidos.length}\n`);
   }
 }

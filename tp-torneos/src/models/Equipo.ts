@@ -18,7 +18,7 @@ export class Equipo implements ICompetidor {
   }
 
   public toString(): void {
-    console.log(`Datos del equipo. Nombre: ${this.nombre}. Integrantes: ${this.listaintegrantes.join(", ")}`);
+    console.log(`Datos del equipo. Nombre: ${this.nombre}. Integrantes: ${this.listaintegrantes.join(", ")}\n`);
   }
 
   public getCantidad(): number {

@@ -8,9 +8,9 @@ export const nets: Equipo = new Equipo("Nets");
 export const mavericks: Equipo = new Equipo("Mavericks");
 
 const jugadoresLakers: Jugador[] = jugadoresBasket.slice(0, 5);
-const jugadoresWarriors: Jugador[] = jugadoresBasket.slice(6, 10);
-const jugadoresNets: Jugador[] = jugadoresBasket.slice(11, 15);
-const jugadoresMavericks: Jugador[] = jugadoresBasket.slice(16, 20);
+const jugadoresWarriors: Jugador[] = jugadoresBasket.slice(5, 10);
+const jugadoresNets: Jugador[] = jugadoresBasket.slice(10, 15);
+const jugadoresMavericks: Jugador[] = jugadoresBasket.slice(15, 20);
 
 jugadoresLakers.forEach((jugador) => lakers.agregarJugador(jugador));
 jugadoresWarriors.forEach((jugador) => warriors.agregarJugador(jugador));

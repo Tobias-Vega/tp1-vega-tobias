@@ -9,7 +9,7 @@ export class Basquet extends Deporte {
 
   public validar(equipo: Equipo): boolean {
     if (this.maxPorEquipo !== equipo.getCantidad()) {
-      console.log(`La cantidad de jugadores debe ser exactamente ${this.maxPorEquipo}}`);
+      console.log(`La cantidad de jugadores debe ser exactamente ${this.maxPorEquipo} \n`);
       return false;
     }
 
