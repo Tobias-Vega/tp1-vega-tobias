@@ -68,8 +68,7 @@ export class Torneo implements IIdentificable {
     finalPartido.toString();
 
     if (!resultadoFinal) {
-      console.error("Error al jugar el partido final.\n");
-      return;
+      throw new Error("Error al jugar el partido final.\n");
     }
 
     const campeon: Equipo = resultadoFinal.golesLocal >= resultadoFinal.golesVisitanes ? finalPartido.local : finalPartido.visitante;
