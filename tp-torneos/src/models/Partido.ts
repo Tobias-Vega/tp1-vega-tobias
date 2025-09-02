@@ -40,13 +40,10 @@ export class Partido implements IIdentificable {
     const nombreDeporte = this.deporte.nombre.toLowerCase();
 
     if (nombreDeporte === "futbol") {
-      const golesTiempoLocal = Math.floor(Math.random() * 5);
-      const golesTiempoVisitante = Math.floor(Math.random() * 5);
+      golesLocal = Math.floor(Math.random() * 5);
+      golesVisitante = Math.floor(Math.random() * 5);
 
-      console.log(`Resultado en tiempo reglamentario: ${this.local.nombre} ${golesTiempoLocal} - ${golesTiempoVisitante} ${this.visitante.nombre}`);
-
-      golesLocal = golesTiempoLocal;
-      golesVisitante = golesTiempoVisitante;
+      console.log(`Resultado en tiempo reglamentario: ${this.local.nombre} ${golesLocal} - ${golesVisitante} ${this.visitante.nombre}`);
 
       if (golesLocal === golesVisitante) {
         console.log("El partido ha terminado en empate. Se define por penales");
@@ -59,10 +56,12 @@ export class Partido implements IIdentificable {
           if (Math.random() >= 0.5) penalesLocal++;
           if (Math.random() >= 0.5) penalesVisitante++;
 
+          console.log(`Tanda n°${i + 1}: Equipo Local ${penalesLocal} - Equipo visitante ${penalesVisitante}`);
           const penalesRestantes = tanda - (i + 1);
 
           if (penalesLocal > penalesVisitante + penalesRestantes) break;
           if (penalesVisitante > penalesLocal + penalesRestantes) break;
+
         }
 
         let ronda = 1;
@@ -70,6 +69,7 @@ export class Partido implements IIdentificable {
           console.log(`Empate en penales. Muerte súbita, ronda ${ronda}`);
           if (Math.random() >= 0.5) penalesLocal++;
           if (Math.random() >= 0.5) penalesVisitante++;
+          console.log(`Equipo Local ${penalesLocal} - Equipo visitante ${penalesVisitante}`);
           ronda++;
         }
 
@@ -85,6 +85,20 @@ export class Partido implements IIdentificable {
     } else if (nombreDeporte === "basquet") {
       golesLocal = Math.floor(Math.random() * (100 - 60 + 1) + 60);
       golesVisitante = Math.floor(Math.random() * (100 - 60 + 1) + 60);
+
+      console.log(`Resultado en tiempo reglamentario: ${this.local.nombre} ${golesLocal} - ${golesVisitante} ${this.visitante.nombre}`);
+
+      if (golesLocal === golesVisitante) {
+        console.log("El partido terminó en empate. Se procede a decidir al ganador por sorteo");
+
+        if (Math.random() >= 0.5) {
+          golesLocal++;
+          console.log(`El sorteo favoreció a ${this.local.nombre}`);
+        } else {
+          golesVisitante++;
+          console.log(`El sorteo favoreció a ${this.visitante.nombre}`);
+        }
+      }
     } else {
       console.error('El deporte no es válido');
       return;

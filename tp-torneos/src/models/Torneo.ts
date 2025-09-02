@@ -43,10 +43,9 @@ export class Torneo implements IIdentificable {
     }
 
     // Semifinales
-    console.log(`Semifinales del torneo ${this.nombre}\n`);
+    console.log(`SEMIFINALES DEL TORNEO ${this.nombre.toUpperCase()}\n`);
     const ganadoresSemifinales: Equipo[] = partidos.map((partido) => {
       const resultado: Resultado | undefined = partido.jugar();
-      partido.toString();
 
       if (!resultado) {
         throw new Error("Error al jugar el partido.\n");
@@ -55,7 +54,7 @@ export class Torneo implements IIdentificable {
     });
 
     // Final
-    console.log(`Final del torneo ${this.nombre}\n`);
+    console.log(`FINAL DEL TORNEO ${this.nombre.toUpperCase()}\n`);
     const equipoA: Equipo | undefined = ganadoresSemifinales[0];
     const equipoB: Equipo | undefined = ganadoresSemifinales[1];
 
@@ -65,7 +64,6 @@ export class Torneo implements IIdentificable {
 
     const finalPartido: Partido = new Partido(equipoA, equipoB, partidos[0].deporte);
     const resultadoFinal: Resultado | undefined = finalPartido.jugar();
-    finalPartido.toString();
 
     if (!resultadoFinal) {
       throw new Error("Error al jugar el partido final.\n");

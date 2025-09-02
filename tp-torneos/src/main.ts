@@ -57,23 +57,4 @@ const jugarTorneoBasquet = (): void => {
   }
 };
 
-// jugarTorneoBasquet();
-
-
-// const forzarErroresFutbol = () => {
-//     const torneoFutbol: Torneo = new Torneo("Mundial de Fútbol");
-
-//     const partidoFutbol1: Partido = new Partido(argentina, lakers, futbol);
-//     const partidoFutbol2: Partido = new Partido(españa, francia, basquet);
-
-//     try {
-//         torneoFutbol.programarPartido(partidoFutbol1);
-//         torneoFutbol.programarPartido(partidoFutbol2);
-
-//         torneoFutbol.jugarTorneo();
-//     } catch (error) {
-//         if (error instanceof Error) {
-//             console.error(error.message);
-//         }
-//     }
-// }
+jugarTorneoBasquet();
