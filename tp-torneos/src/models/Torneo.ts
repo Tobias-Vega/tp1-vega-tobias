@@ -18,7 +18,7 @@ export class Torneo implements IIdentificable {
   }
 
   public listarPartidos(): Partido[] {
-    return [...this.listaPartidos];
+    return this.listaPartidos;
   }
 
   public buscarPartido(id: string): Partido | undefined {
@@ -38,7 +38,6 @@ export class Torneo implements IIdentificable {
     }
 
     if (!partidos[0]?.deporte) {
-      console.error("El deporte de los partidos no coincide.\n");
       return;
     }
 

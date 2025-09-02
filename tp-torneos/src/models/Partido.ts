@@ -28,7 +28,7 @@ export class Partido implements IIdentificable {
     const visitanteValido = this.deporte.validar(this.visitante);
 
     if (!localValido || !visitanteValido) {
-      console.error("Alguno de los equipos no cumplen con el deporte\n");
+      console.error("Alguno o ambos equipos equipos no cumplen con el deporte\n");
       return;
     }
 
@@ -111,7 +111,7 @@ export class Partido implements IIdentificable {
 
   public toString(): void {
     if (this.resultado) {
-      console.log(`Partido en disputa - Deporte: ${this.deporte.nombre}`);
+      console.log(`Id del partido: ${this.id}. Partido en disputa - Deporte: ${this.deporte.nombre}`);
       console.log(`Equipo local: ${this.local.nombre} vs Equipo visitante: ${this.visitante.nombre}\n`);
       this.resultado.toString();
     } else {
